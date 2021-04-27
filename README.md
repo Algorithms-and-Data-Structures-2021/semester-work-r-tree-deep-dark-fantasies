@@ -70,14 +70,14 @@ _Опишите процесс сборки проекта._
 возможности IDE):
 
 ```shell
-git clone https://github.com/Algorithms-and-Data-Structures-2021/semester-work-template.git
+git clone https://github.com/Algorithms-and-Data-Structures-2021/semester-work-r-tree-deep-dark-fantasies.git
 ```
 
 Для ручной сборки проекта в терминале введите:
 
 ```shell
 # переход в папку с проектом
-cd C:\Users\username\asd-projects\semester-work-template
+cd C:\Users\username\asd-projects\semester-work-r-tree-deep-dark-fantasies
 
 # создание папки для файлов сборки (чтобы не засорять папку с проектом) 
 mkdir -p build && cd build 
@@ -100,11 +100,11 @@ _Разрешается использовать собственный форм
 cd dataset
 
 # запуск Python-скрипта
-python generate_csv_bench_dataset.py --samples 1000 <output> [args ...]
+python generate_csv_bench_dataset.py data/insert/<имя папки>
 ```
 
 - `--samples` - количество генерируемых элементов;
-- `<output>` - выходной файл и т.д.
+- `output` - выходной файл и т.д.
 
 Тестовые данные представлены в CSV формате (см.
 [`dataset/data/dataset-example.csv`](dataset/data/dataset-example.csv)):
@@ -156,31 +156,10 @@ _Опишите, как запустить контрольные тесты, ч
 ##### Список контрольных тестов
 
 | Название                  | Описание                                | Метрики         |
-| :---                      | ---                                     | :---            |
-| `random_search_benchmark` | поиск элементов по случайному индексу   | _время_         |
-| `add_benchmark`           | добавление элементов в структуру данных | _время, память_ |
-| ...                       | ...                                     | ...             |
+| `search_benchmark`        | поиск элемента в структуре данных       | _время_         |
+| `insert_benchmark`        | добавление элементов в структору данных | _время_         |
+| `delete_benchmark`        | удаление элементов из структуры данных  | _время_         |
 
-##### Примеры запуска
-
-```shell
-./benchmark <input> <output> --trials 50
-```
-
-- `<input>` - входной файл с набором данных в формате CSV;
-- `<output>` - выходной файл с результатами контрольного теста;
-- `--trials` - количество прогонов на наборе данных и т.д.
-
-Добавление 10000 случайных элементов в структуру данных (повторить операцию 50 раз и вычислить среднее время работы и
-потребляемую память):
-
-```
-./add_benchmark.exe ../dataset/data/add/10000.csv metrics.txt --trials 50
-``` 
-
-где `<input> = ../dataset/data/add/10000.csv` и `<output> = metrics.txt`.
-
-**Примечание**. Файл с метриками не обязателен, можете выводить данные в стандартный поток вывода (т.е. консоль).
 
 ## Источники
 
