@@ -4,7 +4,7 @@
 
 _Измените status badge сверху для отображения статуса сборки вашего проекта._
 
-Actions > CMake > done > Create status badge
+Actions > CMake > ... > Create status badge
 
 _Краткое описание семестрового проекта. Следует отразить информацию по следующим пунктам:_
 
