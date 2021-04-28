@@ -2,10 +2,6 @@
 
 [![CMake](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-r-tree-deep-dark-fantasies/actions/workflows/cmake.yml/badge.svg)](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-r-tree-deep-dark-fantasies/actions/workflows/cmake.yml)
 
-_Измените status badge сверху для отображения статуса сборки вашего проекта._
-
-Actions > CMake > ... > Create status badge
-
 _Краткое описание семестрового проекта. Следует отразить информацию по следующим пунктам:_
 
 - _Какая структура данных реализуется?_
