@@ -185,7 +185,10 @@ float RTree::getArea(std::vector<float> *dimensions)
   return square;
 }
 
-
+void RTree::insert(std::vector<float> *coords, int entry)
+{
+  insert(coords, &pointDims, entry);
+}
 
 
 void RTree::tighten(std::vector<RTree::Node *> nodes)
