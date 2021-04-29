@@ -94,9 +94,8 @@ python generate_csv_bench_dataset.py data/insert/<имя папки>
 [`dataset/data/dataset-example.csv`](dataset/data/dataset-example.csv)):
 
 ## Источники
-
-https://github.com/th-10/R-Tree-cpp
-https://github.com/maja42/rtree
+* https://github.com/th-10/R-Tree-cpp
+* https://github.com/maja42/rtree
 
 
 _**Это не плагиат, это уважение чужого труда и помощь своим сокурсникам более подробно разобраться в теме.**_
