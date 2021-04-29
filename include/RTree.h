@@ -19,7 +19,6 @@ class RTree
 
    public:
     Node(std::vector<float> *coordinates, std::vector<float> *dimensions, bool leaf);
-    virtual ~Node();
   };
 
   class Entry : public Node
@@ -27,7 +26,7 @@ class RTree
    public:
     int entry;
     Entry(std::vector<float> *coordinates, std::vector<float> *dimensions, int entry);
-    virtual ~Entry();
+
   };
 
  private:
@@ -73,5 +72,4 @@ class RTree
   void insert(std::vector<float> *coordinates, int entry);
   std::vector<int> search(std::vector<float> *coordinates, std::vector<float> *dimensions);
   bool deleteData(std::vector<float> *coordinates, int entry);
-  virtual ~RTree();
 };
