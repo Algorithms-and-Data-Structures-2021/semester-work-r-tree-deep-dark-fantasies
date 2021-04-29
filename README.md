@@ -96,6 +96,7 @@ python generate_csv_bench_dataset.py data/insert/<имя папки>
 ## Источники
 * https://github.com/th-10/R-Tree-cpp
 * https://github.com/maja42/rtree
-
-
+* https://en.wikipedia.org/wiki/R-tree
+* https://www.researchgate.net/publication/220863110_R-tree_A_Hardware_Implementation
+* https://radiant-escarpment-88463.herokuapp.com/ru/post/323192
 _**Это не плагиат, это уважение чужого труда и помощь своим сокурсникам более подробно разобраться в теме.**_
