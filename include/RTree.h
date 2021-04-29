@@ -1,61 +1,77 @@
 #include <vector>
 #include <list>
-#ifndef SEMESTER_WORK_TEMPLATE_RTREE_H
-#define SEMESTER_WORK_TEMPLATE_RTREE_H
 
-#endif
 
 #pragma once
-//Something
-class RTree{
+class RTree
+{
 
  public:
-  class Node{
+  class Node
+  {
    public:
-    std::vector<float> coords;
-    std::vector<float> dimensions;
+    std::vector<float> coordinates;
     std::vector<Node*> children;
-    Node* parent;
+    std::vector<float> dimensions;
     bool leaf;
-    static Node* buildRoot(bool asLeaf);
+    Node* parent;
+    static Node*rootMake(bool isLeaf);
 
    public:
-    Node(std::vector<float> coords, std::vector<float> dimensions, bool leaf);
+    Node(std::vector<float> *coordinates, std::vector<float> *dimensions, bool leaf);
+    virtual ~Node();
   };
 
-  class Entry : public Node {
+  class Entry : public Node
+  {
    public:
     int entry;
-    Entry(std::vector<float> coords, std::vector<float> dimensions, int entry);
+    Entry(std::vector<float> *coordinates, std::vector<float> *dimensions, int entry);
+    virtual ~Entry();
   };
 
  private:
-  RTree::Node chooseLeaf(RTree::Node n, RTree::Entry e);
-  float getRequiredExpansion(std::vector<float> coords, std::vector<float> dimensions, Node e);
-  float getArea(std::vector<float> dimensions);
-  std::vector<Node*> splitNode(Node *n);
+  RTree::Node* chooseLeaf(RTree::Node *node, RTree::Entry *entry);
+
+  bool deleteData(std::vector<float> *coordinates, std::vector<float> *dimensions, int entry);
+
+  RTree::Node* findLeaf(RTree::Node *leafNode, std::vector<float> *coordinates, std::vector<float> *dimensions, int entry);
+
+  float getArea(std::vector<float> *dimensions);
+
+  void insert(std::vector<float> *coordinates, std::vector<float> *dimensions, int entry);
+
+  bool isOverlap(std::vector<float> *cordinatesNew, std::vector<float> *dimensionsNew, std::vector<float> *coordinates,
+                 std::vector<float> *dimensions);
+
+  RTree::Node *next(std::vector<RTree::Node *> *cc);
+
+  std::vector<Node*> nodeSplitter(Node *node);
+
+  float receiveNecessaryEnlargement(std::vector<float> *coordinates, std::vector<float> *dimensions, Node *node);
+
+  void search(std::vector<float> *coordinates, std::vector<float> *dimensions, RTree::Node *n, std::vector<int> *results);
+
+  std::vector<RTree::Node *> seedAssemble(std::vector<Node *> *newNode);
+
   void tighten(std::vector<RTree::Node*> nodes);
-  void adjustTree(RTree::Node *n, RTree::Node *nn);
-  std::vector<RTree::Node *> pickSeeds(std::vector<Node *> *nn);
-  bool deleting(std::vector<float> &coords, std::vector<float> &dimensions, int entry);
-  RTree::Node *pickNext(std::vector<RTree::Node *> &cc);
-  bool isOverlap(std::vector<float> scoords, std::vector<float> sdimensions, std::vector<float> coords,
-                 std::vector<float> dimensions);
-  void search(std::vector<float> *coords, std::vector<float> *dimensions, RTree::Node *n, std::vector<int> *results);
-  RTree::Node* findLeaf(RTree::Node *n, std::vector<float> *coords, std::vector<float> *dimensions, int entry);
-  void condenseTree(RTree::Node *n);
-  void insert(std::vector<float> coords, std::vector<float> dimensions, int entry);
+
+  void treeConfigure(RTree::Node *node, RTree::Node *nextNode);
+
+  void treeDensify(RTree::Node *node);
+
   int maxEntries;
   int minEntries;
   int size;
+  static int numberOfDims;
 
-  static int numDims;
   Node *root;
   std::vector<float> pointDims;
 
  public:
   RTree();
-  void insert(std::vector<float> coords, int entry);
-  std::vector<int> search(std::vector<float> coords, std::vector<float> dimensions);
-  bool deleting(std::vector<float> coords, int entry);
+  void insert(std::vector<float> *coordinates, int entry);
+  std::vector<int> search(std::vector<float> *coordinates, std::vector<float> *dimensions);
+  bool deleteData(std::vector<float> *coordinates, int entry);
+  virtual ~RTree();
 };
